@@ -35,7 +35,6 @@ public class EnvironmentSpawner : MonoBehaviour
 
         for (int i = 0; i < environments.Length; i++)
         {
-            Debug.LogError(i);
             GameObject objectToSpawn = environments[i];
             float objectRadius = GetObjectRadius(i);
 
