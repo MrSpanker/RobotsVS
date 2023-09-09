@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EffectsManager _effectsManager;
     [SerializeField] private Collector _coinCollector;
     [SerializeField] private EnemyManager _enemyManager;
+    [SerializeField] private EnvironmentManager _environmentManager;
     [SerializeField] private CoinCounter _coinCounter;
     [SerializeField] private PermanentProgress _permanentProgress;
     [SerializeField] private Player _player;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
         _enemyManager.Init(this, gameStateManager);
         _effectsManager.OnHideCards += WhenHideCards;
         _pauseButton.Init(gameStateManager);
+
+        _environmentManager.Init(this, gameStateManager);
     }
 
     public void SetFirstLevel()

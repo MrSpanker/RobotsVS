@@ -44,10 +44,11 @@ public class EnvironmentSpawner : MonoBehaviour
 
                 do
                 {
-                    spawnPosition = new Vector3(Random.Range(-spawnAreaSizeZ / 4, spawnAreaSizeZ / 4), 0, Random.Range(-spawnAreaSizeX / 4, spawnAreaSizeX / 4));
+                    spawnPosition = new Vector3(Random.Range(-spawnAreaSizeZ / 2, spawnAreaSizeZ / 2), 0, Random.Range(-spawnAreaSizeX / 2, spawnAreaSizeX / 2));
                 } while (IsOverlaping(spawnPosition, objectRadius));
 
-                Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+
+                Instantiate(objectToSpawn, spawnPosition, Quaternion.Euler(0, spawnPosition.x * 3 , 0));
             }
         }       
     }

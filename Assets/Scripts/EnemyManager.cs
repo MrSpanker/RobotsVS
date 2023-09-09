@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour
                 enemy.Init(_playerTransform, this);
             }
         }
-
+        
         _enemyList.Clear();
         for (int i = 0; i < _chapterSettings.EnemyWavesArray.Length; i++)
         {
