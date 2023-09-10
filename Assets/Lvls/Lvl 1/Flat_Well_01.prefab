@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3396356}
   - component: {fileID: 2317480}
   - component: {fileID: 1406664485406774853}
+  - component: {fileID: 899728120166363284}
   m_Layer: 12
   m_Name: Flat_Well_01
   m_TagString: Untagged
@@ -105,3 +106,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.55
   m_Center: {x: 0.047766685, y: 0, z: 0}
+--- !u!114 &899728120166363284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c581a03374ccd604bb44d2641f65d6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 0}

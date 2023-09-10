@@ -8,9 +8,9 @@ public class Environment : MonoBehaviour
 
     public void Init(Transform playerTransform, EnvironmentManager environmentManager)
     {
-        _playerTransform = playerTransform;
-        _enemyManager = enemyManager;
-        _enemyHit = Instantiate(_enemyHitPrefab, transform.position, Quaternion.identity);
-        _enemyHit.Init();
+        //_playerTransform = playerTransform;
+        //_enemyManager = enemyManager;
+        //_enemyHit = Instantiate(_enemyHitPrefab, transform.position, Quaternion.identity);
+        //_enemyHit.Init();
     }
 }

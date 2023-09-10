@@ -1052,12 +1052,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91474571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.633164, y: -2.4897838, z: 4.3543625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1797053315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &91474573
 MonoBehaviour:
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 0}
-  _enemyiesList: []
+  _environmentList: []
 --- !u!1 &97647112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,6 +8729,7 @@ MonoBehaviour:
   _effectsManager: {fileID: 1790621252}
   _coinCollector: {fileID: 1542323637}
   _enemyManager: {fileID: 1291882979}
+  _environmentManager: {fileID: 91474573}
   _coinCounter: {fileID: 439927505}
   _permanentProgress: {fileID: 650468100}
   _player: {fileID: 1542323636}
@@ -14268,6 +14269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8da48d8614079f4b90c87f7c34613ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnvironmentManager: {fileID: 0}
+  parentObject: {fileID: 0}
   environments:
   - {fileID: 7831025019985602516, guid: 2bebad1cb5e8fbd40a0d220a1218291f, type: 3}
   - {fileID: 124032, guid: 45b8cac9ed2e6a142ae411672ba866f9, type: 3}
@@ -14566,6 +14569,7 @@ Transform:
   - {fileID: 439927506}
   - {fileID: 1176852731}
   - {fileID: 547492692}
+  - {fileID: 91474572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1799972061 stripped
@@ -37601,12 +37605,12 @@ PrefabInstance:
     - target: {fileID: 8152475456537471219, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 21.552193
       objectReference: {fileID: 0}
     - target: {fileID: 8152475456537471219, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 21.552193
       objectReference: {fileID: 0}
     - target: {fileID: 8196812612993696243, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
@@ -37721,12 +37725,12 @@ PrefabInstance:
     - target: {fileID: 8196812613576827625, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 77.248
       objectReference: {fileID: 0}
     - target: {fileID: 8196812613576827625, guid: d623ab8b6f8dab34c940d296f921fd2c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 77.248
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37891,6 +37895,11 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 635883294}
+    - target: {fileID: 3990516180397171374, guid: c02be1dc7ebd77e46a1c706afc4ca142,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3990516180397171374, guid: c02be1dc7ebd77e46a1c706afc4ca142,
         type: 3}
       propertyPath: _choseRobot
@@ -42938,4 +42947,3 @@ SceneRoots:
   - {fileID: 1142935263}
   - {fileID: 713692432}
   - {fileID: 1591738040}
-  - {fileID: 91474572}

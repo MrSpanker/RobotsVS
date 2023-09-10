@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelUpEffect _levelUpEffect;
     [SerializeField] private PauseButton _pauseButton;
     
-
+        
     public void Init(GameStateManager gameStateManager)
     {
         _player.Init(_permanentProgress);

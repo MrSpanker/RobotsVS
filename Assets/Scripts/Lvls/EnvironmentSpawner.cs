@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnvironmentSpawner : MonoBehaviour
 {
+    public EnvironmentManager EnvironmentManager;
+    public Transform parentObject;
     public GameObject[] environments;
 
     [SerializeField][Range(0f, 1f)] public float density;
@@ -44,11 +46,14 @@ public class EnvironmentSpawner : MonoBehaviour
 
                 do
                 {
-                    spawnPosition = new Vector3(Random.Range(-spawnAreaSizeZ / 2, spawnAreaSizeZ / 2), 0, Random.Range(-spawnAreaSizeX / 2, spawnAreaSizeX / 2));
+                    spawnPosition = new Vector3(Random.Range(-spawnAreaSizeZ / 4, spawnAreaSizeZ / 4), 0, Random.Range(-spawnAreaSizeX / 4, spawnAreaSizeX / 4));
                 } while (IsOverlaping(spawnPosition, objectRadius));
 
+                Debug.LogError("гюь╗к б EnvironmentManager.RegisterEnvironment(objectToSpawn);");
 
-                Instantiate(objectToSpawn, spawnPosition, Quaternion.Euler(0, spawnPosition.x * 3 , 0));
+                EnvironmentManager.RegisterEnvironment(objectToSpawn);                
+                GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.Euler(0, spawnPosition.x * 3, 0));
+                spawnedObject.transform.parent = parentObject;
             }
         }       
     }
@@ -56,15 +61,12 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         if (environments.Length > 0)
         {
-            Collider objectCollider = environments[objectNumber].GetComponent<SphereCollider>();
-            Debug.LogError(objectCollider);
+            Collider objectCollider = environments[objectNumber].GetComponent<SphereCollider>();           
             if (objectCollider != null)
-            {
-                Debug.LogError("objectCollider.bounds.extents.magnitude =" + objectCollider.bounds.extents.magnitude);
+            {               
                 return objectCollider.bounds.extents.magnitude;
             }
         }
-        Debug.LogError("бепмск детнкр 0.1f");
         return 0.1f;
     }
     private bool IsOverlaping(Vector3 spawnPosition, float objectRadius)

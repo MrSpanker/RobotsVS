@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvironmentManager : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform;
-    [SerializeField] private List<Environment> _environmentList = new List<Environment>();
+    [SerializeField] private List<GameObject> _environmentList = new List<GameObject>();
 
     private GameManager _gameManager;
     private GameStateManager _gameStateManager;
@@ -15,31 +15,12 @@ public class EnvironmentManager : MonoBehaviour
         _gameManager = gameManager;
         _gameStateManager = gameStateManager;
         //_gameManager.OnUpLevel += UpLevel;
-        SetupEnvironment();
+        //RegisterEnvironment();
     }
+    
 
-    private void SetupEnvironment()
+    public void RegisterEnvironment(GameObject objectToSpawn)
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            GameObject enemyGameObject = transform.GetChild(i).gameObject;
-            if (enemyGameObject.activeSelf)
-            {
-                Environment environment = enemyGameObject.GetComponent<Environment>();
-                _environmentList.Add(environment);
-                environment.Init(_playerTransform, this);
-            }
-        }
-
-        _environmentList.Clear();
-
-        for (int i = 0; i < _chapterSettings.EnemyWavesArray.Length; i++)
-        {
-            _environmentList.Add(_chapterSettings.EnemyWavesArray[i].Enemy);
-        }
-    }
-    private void NextLvl(int lvl)
-    {
-
-    }
+        _environmentList.Add(objectToSpawn);
+    }    
 }
