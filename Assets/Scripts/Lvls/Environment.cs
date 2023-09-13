@@ -2,39 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Environment : MonoBehaviour
 {
-    private bool _isFrozen;
-    private Transform _playerTransform;
-    int randomNumber;
-    float positionX;
+    public Renderer spawnArea;
+    public float spawnAreaSizeZ;
+    public float spawnAreaSizeX;
 
-    public float cof = 1.9f;
+    private Vector3 _newPosition;
+    private float _newRotation;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        Debug.LogError("ﬂ –Œƒ»À—ﬂ !!!!!!");
+        if (!spawnArea.bounds.Contains(transform.position))
+        {
+            _newPosition = transform.position;
+            _newRotation = Random.Range(1,360);
+
+            if (transform.position.x < spawnArea.bounds.min.x || transform.position.x > spawnArea.bounds.max.x)
+            {
+                _newPosition.x = transform.position.x < spawnArea.bounds.min.x ? spawnArea.bounds.max.x : spawnArea.bounds.min.x;                
+            }
+            else
+            {
+                _newPosition.z = transform.position.z < spawnArea.bounds.min.z ? spawnArea.bounds.max.z : spawnArea.bounds.min.z;
+            }
+
+            transform.position = _newPosition;
+            transform.rotation = Quaternion.Euler(0, _newRotation, 0);
+        }
     }
-
-    //public void Init(Transform playerTransform, EnvironmentManager environmentManager)
-    //{
-    //    _playerTransform = playerTransform;
-    //    _enemyManager = enemyManager;
-    //    _enemyHit = Instantiate(_enemyHitPrefab, transform.position, Quaternion.identity);
-    //    _enemyHit.Init();
-    //}
-
-    //private void FixedUpdate()
-    //{
-    //    if (Mathf.Abs(transform.position.x - spawnArea.position.x) > 2.5f || Mathf.Abs(transform.position.z - spawnArea.position.z) > 2.5f)
-    //    {
-    //        Vector3 oppositePosition = new Vector3(
-    //            spawnArea.position.x - Mathf.Sign(currentPosition.x - spawnArea.position.x) * 2.5f,
-    //            currentPosition.y,
-    //            spawnArea.position.z - Mathf.Sign(currentPosition.z - spawnArea.position.z) * 2.5f
-    //        );
-
-    //        transform.position = oppositePosition;
-    //    }
-    //}
 }
